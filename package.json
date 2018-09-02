@@ -1,0 +1,23 @@
+{
+  "name": "transcode-video",
+  "version": "1.0.0",
+  "description": "Video transcoding as example serverless project from MEAP book Serverless Architectures.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tutorial",
+    "MEAP",
+    "serverless"
+  ],
+  "author": "Bill Barrington",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.307.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbarrington42/transcode-video.git"
+  }
+}
