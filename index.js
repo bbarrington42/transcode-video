@@ -6,6 +6,7 @@ const mediaConvert = new AWS.MediaConvert({
 });
 
 const outputBucketName = 'transcoded-videos';
+
 exports.handler = async function (event, context) {
     const key = event.Records[0].s3.object.key;
     const sourceKey = decodeURIComponent(key.replace(/\+/g, ' '));
@@ -19,6 +20,7 @@ exports.handler = async function (event, context) {
     const output = 's3://' + outputBucketName + '/' + outputKey + '/';
 
     console.log(input, output);
+    
     try {
         const job = {
             "Role": "arn:aws:iam::038221756127:role/media-convert-role",
@@ -64,4 +66,4 @@ exports.handler = async function (event, context) {
     } catch (error) {
         console.error(error);
     }
-}
+};
