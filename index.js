@@ -24,6 +24,7 @@ exports.handler = async function (event, context) {
     const output = 's3://' + outputBucketName + '/' + outputKey + '/';
 
     console.log(input, output);
+    
     try {
         const job = {
             "Role": "arn:aws:iam::048251071589:role/media-convert-role",
@@ -69,4 +70,4 @@ exports.handler = async function (event, context) {
     } catch (error) {
         console.error(error);
     }
-}
+};
