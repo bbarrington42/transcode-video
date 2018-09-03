@@ -1,12 +1,17 @@
 'use strict';
 
 const AWS = require('aws-sdk');
+AWS.config.update({region:'us-east-1'});
+
 const mediaConvert = new AWS.MediaConvert({
-    endpoint: 'https://u4ac0ytu.mediaconvert.us-east-1.amazonaws.com'
+    endpoint: 'https://ae2af8p7.mediaconvert.us-east-1.amazonaws.com'
 });
 
-const outputBucketName = 'transcoded-videos';
+const outputBucketName = 'bills-videos-transcoded';
+
 exports.handler = async function (event, context) {
+    console.log('event: ', event);
+
     const key = event.Records[0].s3.object.key;
     const sourceKey = decodeURIComponent(key.replace(/\+/g, ' '));
     const outputKey = sourceKey.split('.')[0];
@@ -21,7 +26,7 @@ exports.handler = async function (event, context) {
     console.log(input, output);
     try {
         const job = {
-            "Role": "arn:aws:iam::038221756127:role/media-convert-role",
+            "Role": "arn:aws:iam::048251071589:role/media-convert-role",
             "Settings": {
                 "Inputs": [{
                     "FileInput": input,
