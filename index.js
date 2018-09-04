@@ -10,7 +10,7 @@ const mediaConvert = new AWS.MediaConvert({
 const outputBucketName = 'bills-videos-transcoded';
 
 exports.handler = async function (event, context) {
-    console.log('event: ', event);
+    console.log('event: ', JSON.stringify(event));
 
     const key = event.Records[0].s3.object.key;
     const sourceKey = decodeURIComponent(key.replace(/\+/g, ' '));
